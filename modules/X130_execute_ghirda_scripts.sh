@@ -10,23 +10,10 @@
 #
 # emba is licensed under GPLv3
 #
-# Author(s): Michael Messner, Pascal Eckmann
+# Author(s): Stefan Haböck
 
-# Description:  Module with all available functions and patterns to use
-#               Access:
-#                 firmware root path via $FIRMWARE_PATH
-#                 binary array via ${BINARIES[@]}
+# Description:  This module executes all python and java ghidra scripts in a given directory
 
-# Code Guidelines:
-# -----------------------------
-# Identation should be 2 spaces (no tab character).
-# Comments: use # sign followed by a space. When needed, create a comment block. Blank lines: allowed.
-# All functions use snake_case (e.g. test_xyz()). One blank lines between functions.
-# Variables should be capitalized, with underscore as word separator (e.g. FILE_EXISTS=1).
-# If you use external code, add '# Test source: [LINK TO CODE]' above.
-# Use 'local' for variables if possible for better resource management
-# Use 'export' for variables which aren't only used in one file - it isn't necessary, but helps for readability
-# Boolean: 0=False 1=True, e.g. [[ $VAR -eq 0 ]]
 
 declare -a SCRIPTS
 
