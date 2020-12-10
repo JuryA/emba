@@ -53,6 +53,7 @@ main()
   set -a 
 
   export ARCH_CHECK=1
+  export GHIDRA=0
   export FORMAT_LOG=0
   export FIRMWARE=0
   export KERNEL=0
@@ -75,6 +76,10 @@ main()
   export VUL_FEED_DB="$EXT_DIR""/allitems.csv"
   export VUL_FEED_CVSS_DB="$EXT_DIR""/allitemscvss.csv"
   export BASE_LINUX_FILES="$CONFIG_DIR""/linux_common_files.txt"
+  export GHIDRA_PATH="$EXT_DIR""/ghidra"
+  export PROJCET_PATH="$EXT_DIR""/ghidra_projects"
+  export SCRIPT_PATH="$EXT_DIR""/ghidra_script"
+  export PROJECT_NAME="Project"
 
   echo
 
@@ -88,7 +93,7 @@ main()
     exit 1
   fi
 
-  while getopts a:A:cde:Ef:Fhk:l:m:sz OPT ; do
+  while getopts a:A:cde:Ef:Fhk:l:G:m:sz OPT ; do
     case $OPT in
       a)
         export ARCH="$OPTARG"
@@ -116,6 +121,14 @@ main()
         ;;
       F)
         export FORCE=1
+        ;;
+      G)
+        export GHIDRA=1
+        ARG_ARRAY=($OPTARG)
+        export GHIDRA_PATH="${ARG_ARRAY[0]}"
+        export PROJCET_PATH="${ARG_ARRAY[1]}"
+        export SCRIPT_PATH="${ARG_ARRAY[2]}"
+        export PROJECT_NAME="${ARG_ARRAY[3]}"
         ;;
       h)
         print_help
