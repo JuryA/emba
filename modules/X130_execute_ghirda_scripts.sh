@@ -31,7 +31,6 @@ S130_execute_ghirda_scripts() {
     if [[ $(cat "$GHIDRA_PATH/support/analyzeHeadless") != "" ]]; then
       print_output "[+] Execute Ghidra Scripts"
       SCRIPTS=($(ls "$SCRIPT_PATH" | grep ".java\|.py"))
-      echo "Test $(ls "$SCRIPT_PATH" | grep ".java\|.py")"
       for SCRIPT in "${SCRIPTS[@]}"; do
         print_output "$SCRIPT"
         SCRIPTEXPRESSION+="-postscript $SCRIPT_PATH/$SCRIPT "
